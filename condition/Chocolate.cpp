@@ -3,7 +3,9 @@
 int main(){
     int n, m, k;
     std::cin >> n >> m >> k;
-    if (n*m > k && k > 2){
+    if ((k % n == 0 && k / n < m || k % m == 0 && k / m < n) && k < m*n){
         std::cout << "YES";
+    }else{
+        std::cout << "NO";
     }
 }
