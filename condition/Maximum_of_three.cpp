@@ -8,18 +8,18 @@
 #include <iomanip>
 int main()
 {
-	int number_a, number_b, number_c, result;
+	int number_a, number_b, number_c, maximum;
 	std::cin >> number_a;
 	std::cin >> number_b;
 	std::cin >> number_c;
-	if (number_a >= number_b and number_a >= number_c) {
-		result = number_a;
-	}else if (number_b >= number_a and number_b >= number_c) {
-		result = number_b;
-	}else if (number_c >= number_a and number_c >= number_b) {
-		result = number_c;
+	maximum = number_a;
+	if (number_b > maximum){
+		maximum = number_b;
 	}
-	std::cout << result;
+	if (number_c > maximum){
+		maximum = number_c;
+	}
+	std::cout << maximum;
 }
 
 

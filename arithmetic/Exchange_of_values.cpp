@@ -20,16 +20,16 @@
 // print (a, b) 
 
 #include <iostream>
-#include <iomanip>
+
 int main()
 {
 	int number_one, number_two, help_number;
 	std::cin >> number_one;
 	std::cin >> number_two;
-	help_number = number_one;
-	number_one = number_two;
-	number_two = help_number;
-	std::cout << number_one << ' ' << number_two;
+	number_one = number_one + number_two;
+	number_two = number_one - number_two;
+	number_one = number_one -  number_two;
+	std::cout << number_one << " " << number_two;
 
 }
 

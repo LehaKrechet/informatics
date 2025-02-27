@@ -9,7 +9,6 @@
 // Выведите ответ на задачу, соблюдая требуемый формат.
 
 #include <iostream>
-#include <iomanip>
 int main()
 {
 	int number_second, number_minute, hour, minute, second;
@@ -18,7 +17,7 @@ int main()
 	hour = (number_minute / 60) % 24;
 	minute = (number_minute % 60);
 	second = number_second % 60;
-	std::cout << hour << ':' << std::setfill('0') << std::setw(2) << minute << ':' << std::setfill('0') << std::setw(2) << second;
+	std::cout << hour << ':' << minute / 10 << minute % 10 << ':' << second / 10 << second % 10;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
