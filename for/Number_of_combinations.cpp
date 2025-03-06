@@ -1,17 +1,20 @@
 #include <iostream>
 
 int main(){
-    int number_n, number_k, fact_n=1, fact_k=1, fact_n_k=1, result;
+    int number_n, number_k, result = 1;
     std::cin >> number_n >> number_k;
-    for (int i = 1; i <= number_n; i++){
-        fact_n = fact_n * i;
+    if (number_k > number_n/2){
+        number_k = number_n - number_k;
     }
-    for (int i = 1; i <= number_k; i++){
-        fact_k = fact_k * i;
+    if (number_k == 1){
+        result = number_n;
+    }else if (number_k == 0){
+        result = 1;
+    }else{
+        for (int i = 1; i <= number_k; ++i){
+            result *= number_n-number_k+i;
+            result /= i;
+        }
     }
-    for (int i = 1; i <= (number_n-number_k); i++){
-        fact_n_k = fact_n_k * i;
-    }
-    result = fact_n / (fact_k * fact_n_k);
     std::cout << result;
 }
