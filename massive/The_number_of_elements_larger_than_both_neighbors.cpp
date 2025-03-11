@@ -6,8 +6,8 @@ int main(){
     for (int i = 0; i < number; i++){
         std::cin >> array[i];
     }
-    for (int i = 0; i < number; i++){
-        if (array[i] > 0){
+    for (int i = 0; i < number-2; i++){
+        if (array[i] < array[i+1] && array[i+1] > array[i+2]){
             count += 1;
         }
     }
