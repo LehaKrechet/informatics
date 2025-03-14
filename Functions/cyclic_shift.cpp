@@ -1,33 +1,51 @@
+
+
 #include <iostream>
 
-int* shift(int number, int count, int array[]){
-    int temp = 0, i = 0;
-    if (count < 0){
-        count += number;
-    }
-    for (int j = 0; j < count; ++j){
 
-    temp = array[number-1];
-    for (int i = number-2; i >= 0; --i){
-        array[i+1] = array[i];
+void reverse(int arr[], int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
     }
-    array[0] = temp;
-    }
-    return array;
 }
 
-int main(){
-    int number, array[100000] = {}, count;
-    std::cin >> number;
 
-    for (int i = 0; i < number; ++i){
-        std::cin >> array[i];
+void cyclicShift(int arr[], int n, int k) {
+    
+    k %= n;
+    if (k < 0) {
+        k += n; 
     }
-    std::cin >> count;
 
-    int* arr = shift(number, count, array);
+    reverse(arr, 0, n - 1);    
+    reverse(arr, 0, k - 1);     
+    reverse(arr, k, n - 1);     
+}
 
-    for (int i = 0; i < number; ++i){
+int main() {
+    int n, k;
+
+
+    std::cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+
+ 
+    std::cin >> k;
+
+  
+    cyclicShift(arr, n, k);
+
+    for (int i = 0; i < n; ++i) {
         std::cout << arr[i] << " ";
     }
+    std::cout << std::endl;
+
+    return 0;
 }
