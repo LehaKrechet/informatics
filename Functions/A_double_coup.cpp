@@ -1,5 +1,6 @@
+
 #include <iostream>
-int* coup(int start, int end, int array[]){
+void coup(int start, int end, int array[]){
     int temp;
     while (start < end) {
         int temp = array[start];
@@ -8,24 +9,29 @@ int* coup(int start, int end, int array[]){
         start++;
         end--;
     }
-    return array;
 
 }
-int* sequence(int number_n, int arr[]){
+void sequence(int number_n, int arr[]){
     int count = 1;
     for (int i = 0; i < number_n; ++i){
         arr[i] = count;
         count += 1;
     }
-    return arr;
+}
+void double_coup(int number_n, int start_A, int end_B, int start_C, int end_D, int arr[]){
+    sequence(number_n, arr);
+    coup(start_A-1, end_B-1, arr);
+    coup(start_C-1, end_D-1, arr);
+}
+void array_out(int number_n, int arr[]){
+    for (int i = 0; i < number_n; i++){
+        std::cout << arr[i] << " ";
+    }
+
 }
 int main(){
     int arr[1000] = {}, temp, number_n, start_A, end_B, start_C, end_D;
     std::cin >> number_n >> start_A >> end_B >> start_C >> end_D;
-    int* array = sequence(number_n, arr);
-    int* reverse_array = coup(start_A-1, end_B-1, array);
-    int* reverse_array_2 = coup(start_C-1, end_D-1, reverse_array);
-    for (int i = 0; i < number_n; i++){
-        std::cout << reverse_array_2[i] << " ";
-    }
+    double_coup(number_n, start_A, end_B, start_C, end_D, arr);
+    array_out(number_n, arr);
 }
