@@ -1,42 +1,29 @@
 #include <iostream>
 
-const int MAX_MESSAGES = 1001;
-
-int parents[MAX_MESSAGES];
-int children_count[MAX_MESSAGES];
-int children[MAX_MESSAGES][MAX_MESSAGES];
-
-int removeMessages(int k) {
+int del_vetv(int mess_arr[], int link_arr[], int n, int k){
     int count = 1;
-    for (int i = 0; i < children_count[k]; ++i) {
-        count += removeMessages(children[k][i]);
+    for (int i = 0; i < n; ++i){
+        if (link_arr[i] == k){
+            count += del_vetv(mess_arr, link_arr, n, mess_arr[i]);
+        }
     }
     return count;
 }
+void read(int n, int mess_arr[], int link_arr[]){
+    int mess, link;
+    for (int i = 0; i < n; ++i){
+        std::cin >> mess >> link;
+        mess_arr[i] = mess;
+        link_arr[i] = link;
+    } 
+}
 
-int main() {
-    int n;
+int main(){
+    int n, k;
+    int mess_arr[1000] = {}, link_arr[1000] = {};
     std::cin >> n;
-
-    for (int i = 0; i <= MAX_MESSAGES; ++i) {
-        parents[i] = 0;
-        children_count[i] = 0;
-    }
-
-    for (int i = 0; i < n; ++i) {
-        int message, parent;
-        std::cin >> message >> parent;
-        parents[message] = parent;
-        if (parent != 0) {
-            children[parent][children_count[parent]] = message;
-            children_count[parent]++;
-        }
-    }
-
-    int k;
+    read(n, mess_arr, link_arr);
     std::cin >> k;
+    std::cout << del_vetv(mess_arr, link_arr, n, k);
 
-    std::cout << removeMessages(k);
-
-    return 0;
 }
