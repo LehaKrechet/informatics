@@ -1,20 +1,27 @@
 #include <iostream>
+void sw(int n, int arr[]){
+    for (int i = 0; i < n-1; i+=2){
+        std::swap(arr[i], arr[i+1]);
+    }
+}
+void read(int n, int arr[]){
+    int number;
+    for (int i = 0; i < n; i++){
+        std::cin >> number;
+        arr[i] = number;
+    }
+}
+void write(int n, int arr[]){
+    for (int i = 0; i < n; i++){
+        std::cout << arr[i] << ' ';
+    }
+}
 
 int main(){
-    int number, count = 0, elem, array[100] = {};
-    std::cin >> number;
-    for (int i = 0; i < number; i++){
-        std::cin >> array[i];
-    }
-    for (int i = 0; i < number-1; i+=2){
-        array[i+1] = array[i+1] + array[i];
-        array[i] = array[i+1] - array[i];
-        array[i+1] = array[i+1] - array[i];
-    }
-    std::cout << array[0];
-    for (int i = 1; i < number; i++){
-        std::cout << " " << array[i];
-    }
-    std::cout << std::endl;
+    int arr[35] = {}, n;
+    std::cin >> n;
+    read(n, arr);
+    sw(n, arr);
+    write(n, arr);
 
 }

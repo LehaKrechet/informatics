@@ -1,42 +1,40 @@
 #include <iostream>
 
-const int MAX_MESSAGES = 1001;
 
-int parents[MAX_MESSAGES];
-int children_count[MAX_MESSAGES];
-int children[MAX_MESSAGES][MAX_MESSAGES];
+int countMessages(int ids[], int parents[], int N, int k, bool visited[]) {
+   
+    if (visited[k]) return 0;
 
-int removeMessages(int k) {
-    int count = 1;
-    for (int i = 0; i < children_count[k]; ++i) {
-        count += removeMessages(children[k][i]);
+    visited[k] = true;
+
+    int count = 1; 
+
+    for (int i = 0; i < N; ++i) {
+        if (parents[i] == k) {
+            count += countMessages(ids, parents, N, ids[i], visited);
+        }
     }
+
     return count;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+    int N;
+    std::cin >> N;
 
-    for (int i = 0; i <= MAX_MESSAGES; ++i) {
-        parents[i] = 0;
-        children_count[i] = 0;
-    }
-
-    for (int i = 0; i < n; ++i) {
-        int message, parent;
-        std::cin >> message >> parent;
-        parents[message] = parent;
-        if (parent != 0) {
-            children[parent][children_count[parent]] = message;
-            children_count[parent]++;
-        }
+    int ids[N];
+    int parents[N];
+    for (int i = 0; i < N; ++i) {
+        std::cin >> ids[i] >> parents[i];
     }
 
     int k;
     std::cin >> k;
 
-    std::cout << removeMessages(k);
+    bool visited[N + 1] = {false};
 
-    return 0;
+    int result = countMessages(ids, parents, N, k, visited);
+
+    std::cout << result << std::endl;
+
 }

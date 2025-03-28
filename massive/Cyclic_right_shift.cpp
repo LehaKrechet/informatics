@@ -1,24 +1,27 @@
 #include <iostream>
+void cyclic(int n, int arr[]){
+    for (int i = n-1; i > 0; i--){
+        std::swap(arr[i], arr[i-1]);
+    }
+}
+void read(int n, int arr[]){
+    int number;
+    for (int i = 0; i < n; i++){
+        std::cin >> number;
+        arr[i] = number;
+    }
+}
+void write(int n, int arr[]){
+    for (int i = 0; i < n; i++){
+        std::cout << arr[i] << ' ';
+    }
+}
 
 int main(){
-    int number, count = 0, elem, array[100] = {}, help_number;
-    std::cin >> number;
-    help_number = number + 1;
-    for (int i = 0; i < number; ++i){
-        std::cin >> array[i];
-    }
-    array[number] = array[number-1];
-    for (int i = 0; i < number-1; ++i){
-        array[help_number] = array[i];
-        help_number += 1;
-    }
-    help_number = 0;
-    for (int i = number; i < number+number+1; ++i){
-        array[help_number] = array[i];
-        array[i] = 0;
-        help_number += 1;
-    }
-    for (int i = 0; i < number; ++i){
-        std::cout << array[i] << " ";
-    }
+    int arr[35] = {}, n;
+    std::cin >> n;
+    read(n, arr);
+    cyclic(n, arr);
+    write(n, arr);
+
 }
