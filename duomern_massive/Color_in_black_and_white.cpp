@@ -23,12 +23,35 @@ void color(int n, int m, int arr[101][101]){
     if (fractionalPart < 100) std::cout << "0";
     if (fractionalPart < 10) std::cout << "0";
     std::cout << fractionalPart << std::endl;
-
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            if (arr[i][j] < average){
+                arr[i][j] = 0;
+            }else if (arr[i][j] > average){
+                arr[i][j] = 255;
+            }
+        }
+    }
+}
+void write(int n, int m, int arr[101][101]){
+    for (int i = 0; i < n; ++i){
+        for (int j = 0; j < m; ++j){
+            if (arr[i][j] == 0){
+                std::cout << "  " << 0 << ' ';
+            }else{
+                std::cout << arr[i][j] << ' ';
+            
+            
+        }
+    }
+    std::cout << std::endl;
+}
 }
 int main(){
     int n, m, arr[101][101] = {};
     std::cin >> n >> m;
     read(n, m, arr);
     color(n, m, arr);
+    write(n, m, arr);
 
 }
