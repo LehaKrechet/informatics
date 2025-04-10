@@ -1,44 +1,37 @@
 #include <iostream>
-
-int main() {
-    const int MAX_SIZE = 32;
-    int rows, cols, mines_count;
-    std::cin >> rows >> cols >> mines_count;
-    
-    char field[MAX_SIZE][MAX_SIZE] = {};
-    
-    for(int i = 0; i < mines_count; ++i) {
-        int r, c;
-        std::cin >> r >> c;
-        field[r-1][c-1] = '*';
+using namespace std;
+ 
+int main(){
+    int n, m, bomb, count = 0;
+    cin >> n >> m >> bomb;
+    char A[34][34];
+    int x, y;
+    for (int i = 0; i < n + 2; i++){ 
+        for (int j = 0; j < m + 2; j++){ 
+            A[i][j] = '0';
+        }
     }
-    
-    const int directions[8][2] = {{-1,-1}, {-1,0}, {-1,1},
-                                 {0,-1},          {0,1},
-                                 {1,-1},  {1,0},  {1,1}};
-    
-    for(int i = 0; i < rows; ++i) {
-        for(int j = 0; j < cols; ++j) {
-            if(field[i][j] != '*') {
-                int count = 0;
-                for(int d = 0; d < 8; ++d) {
-                    int ni = i + directions[d][0];
-                    int nj = j + directions[d][1];
-                    if(ni >= 0 && ni < rows && nj >= 0 && nj < cols && field[ni][nj] == '*') {
-                        ++count;
-                    }
-                }
-                field[i][j] = count ? '0' + count : '0';
+    for (int i = 0; i < bomb; i++){
+        cin >> x >> y;
+        A[x][y] = '*';
+    }
+    for (int i = 1; i < n + 1; i++){
+        for (int j = 1; j < m + 1; j++){ 
+            if (A[i][j] != '*'){
+                if (A[i-1][j] == '*') count++;
+                if (A[i-1][j-1] == '*') count++;
+                if (A[i-1][j+1] == '*') count++;
+                if (A[i+1][j+1] == '*') count++;
+                if (A[i+1][j-1] == '*') count++;
+                if (A[i+1][j] == '*') count++;
+                if (A[i][j-1] == '*') count++;
+                if (A[i][j+1] == '*') count++;
+                cout << count;
+                count = 0;
             }
+            else cout << A[i][j];
+            if (j != m) cout << " ";
         }
+        cout << endl;
     }
-    
-    for(int i = 0; i < rows; ++i) {
-        for(int j = 0; j < cols; ++j) {
-            std::cout << field[i][j] << ' ';
-        }
-        std::cout << std::endl;
-    }
-    
-    return 0;
 }
