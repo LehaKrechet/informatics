@@ -10,12 +10,12 @@ void read(int n, int m, int matrix[100][100]){
 }
 
 void search_saddle(int n, int m, int array[100][100]){
-    bool found = false; // Флаг для отслеживания найденных элементов
+    bool found = false; 
 
-    // Проходим по всем элементам массива
+
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            // Проверяем, является ли элемент минимальным в своей строке
+            
             bool isMinInRow = true;
             for (int col = 1; col <= m; ++col) {
                 if (array[i][j] > array[i][col]) {
@@ -24,7 +24,7 @@ void search_saddle(int n, int m, int array[100][100]){
                 }
             }
 
-            // Если элемент минимален в строке, проверяем, является ли он максимальным в своем столбце
+
             if (isMinInRow) {
                 bool isMaxInCol = true;
                 for (int row = 1; row <= n; ++row) {
@@ -34,20 +34,19 @@ void search_saddle(int n, int m, int array[100][100]){
                     }
                 }
 
-                // Если оба условия выполнены, выводим индексы
                 if (isMaxInCol) {
-                    std::cout << (i) << " " << (j) << std::endl; // +1 для 1-индексации
-                    found = true; // Устанавливаем флаг, что элемент найден
+                    std::cout << (i) << " " << (j) << std::endl; 
+                    found = true; 
                 }
             }
         }
     }
 
-    // Если не нашли ни одного элемента, выводим 0
     if (!found) {
         std::cout << 0 << std::endl;
     }
 }
+
 void write(int n, int m, int matrix[100][100]){
     std::cout << m << " " << n << std::endl;
     for (int i = 1; i <= m; i++){

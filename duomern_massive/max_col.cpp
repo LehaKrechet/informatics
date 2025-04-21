@@ -23,7 +23,6 @@ void search_max(int n, int m, int arr[101][101]){
 }
     bool has_max[100] = {false};
         
-        // Поиск столбцов с максимальным элементом
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 if (arr[i][j] == arr[max_index_0][max_index_1]) {
@@ -32,7 +31,6 @@ void search_max(int n, int m, int arr[101][101]){
             }
         }
         
-        // Вывод найденных столбцов
         for (int j = 0; j < m; ++j) {
             if (has_max[j]) {
                 for (int i = 0; i < n; ++i) {

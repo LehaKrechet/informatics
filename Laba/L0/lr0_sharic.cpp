@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 void convert(double number, int arr[3]){
-    int drob = int((int(number) - (number+1)) * 1000);
+    int drob = int((fabs(number)+1 - int(fabs(number))) * 1000);
     arr[0] = abs((drob / 100) % 10);
     arr[1] = abs((drob / 10) % 10);
     arr[2] = abs(drob % 10);
@@ -38,7 +39,6 @@ int main(){
     file << Vx <<';' << Vy << ';' << Vz << ';' << ax << ';' << ay << ';' << az << ';' << dt << std::endl;
     file << std::endl;
     file << " ;x;y;z" << std::endl;
-
     convert(X, arr);
     file << "Max_height:; " << int(X) << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Y, arr);
@@ -63,7 +63,7 @@ int main(){
 
     double Xt, Yt, Zt, Vxt, Vyt, Vzt;
     file << "time" << ';' << "x" << ';' << "y" << ';' << "z" << ';' << "Vx" << ';' << "Vy" << ';' << "Vz" << std::endl;
-    for (double t = 0; t<T_poleta - (0.5 * dt); t+=dt){
+    for (double t = 0+dt; t<T_poleta; t+=dt){
         Xt= Vx*t + (ax*t*t)/2; 
         Vxt= Vx + ax*t;
     
@@ -74,7 +74,7 @@ int main(){
         Vzt= Vz + az*t;
 
         convert(t, arr);
-        file << int(t) << ',' << arr[0] << arr[1] << arr[2] << ';'; 
+        file << int(t + 0.0000000001) << ',' << arr[0] << arr[1] << arr[2] << ';'; 
 
         convert(Xt, arr);
         file << int(Xt) << ',' << arr[0] << arr[1] << arr[2] << ';';
