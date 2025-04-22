@@ -19,7 +19,8 @@ void sort(int n, uint64_t arr[], uint64_t count_p_s[]){
     count_p_s[1] = perest;
 }
 
-void generate_random(int arr[8]){
+int main(){
+    int arr[8] = {10, 100, 1000, 2000, 5000, 10000, 50000, 100000};
     std::ofstream file("file.csv");
     srand(time(NULL));
 
@@ -39,10 +40,4 @@ void generate_random(int arr[8]){
         }
     }
     file.close();
-
-
-}
-int main(){
-    int arr[8] = {10, 100, 1000, 2000, 5000, 10000, 50000, 100000};
-    generate_random(arr);
 }
