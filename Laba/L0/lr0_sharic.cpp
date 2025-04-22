@@ -7,10 +7,17 @@ void convert(double number, int arr[3]){
     arr[0] = abs((drob / 100) % 10);
     arr[1] = abs((drob / 10) % 10);
     arr[2] = abs(drob % 10);
+
 }
+char sign(double number){
+    if (number < 0 && int(number) == 0){
+        return '-';
+    }
+    return ' ';
+}
+
 int main(){
     int arr[3] = {};
-
     std::ofstream file("file.csv");
 
     double Vx, Vy, Vz, ax, ay, az, dt;
@@ -39,12 +46,13 @@ int main(){
     file << Vx <<';' << Vy << ';' << Vz << ';' << ax << ';' << ay << ';' << az << ';' << dt << std::endl;
     file << std::endl;
     file << " ;x;y;z" << std::endl;
+
     convert(X, arr);
-    file << "Max_height:; " << int(X) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << "Max_height:; " << sign(X) << int(X) << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Y, arr);
     file << int(Y) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Z, arr);
-    file << int(Z) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
+    file << sign(Z) << int(Z) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
     convert(T_up, arr);
     file << "Max_height_time:; " << int(T_up) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
@@ -53,11 +61,11 @@ int main(){
     file << "Fly_time:; " << int(T_poleta)  << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
     convert(Xd, arr);
-    file << "Coord_down:; " << int(Xd) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << "Coord_down:; " << sign(Xd) << int(Xd)   << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Yd, arr);
-    file << int(Yd) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+    file << sign(Yd) << int(Yd) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Zd, arr);
-    file << int(Zd) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
+    file << sign(Zd) << int(Zd) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
     file << std::endl;
 
@@ -77,18 +85,18 @@ int main(){
         file << int(t + 0.0000000001) << ',' << arr[0] << arr[1] << arr[2] << ';'; 
 
         convert(Xt, arr);
-        file << int(Xt) << ',' << arr[0] << arr[1] << arr[2] << ';';
+        file << sign(Xt) << int(Xt)  << ',' << arr[0] << arr[1] << arr[2] << ';';
         convert(Yt, arr);
-        file << int(Yt) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+        file << sign(Yt) << int(Yt)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
         convert(Zt, arr);
-        file << int(Zt) << ',' << arr[0] << arr[1] << arr[2] << ';';
+        file << sign(Zt) << int(Zt)  << ',' << arr[0] << arr[1] << arr[2] << ';';
 
         convert(Vxt, arr);
-        file  << int(Vxt) << ',' << arr[0] << arr[1] << arr[2] << ';';
+        file << sign(Vxt) << int(Vxt)  << ',' << arr[0] << arr[1] << arr[2] << ';';
         convert(Vyt, arr);
-        file << int(Vyt) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+        file << sign(Vyt) << int(Vyt)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
         convert(Vzt, arr);
-        file << int(Vzt) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
+        file << sign(Vzt) << int(Vzt)  << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
 
 
@@ -103,18 +111,18 @@ int main(){
     file << int(T_up) << ',' << arr[0] << arr[1] << arr[2] << ';'; 
 
     convert(X, arr);
-    file << int(X) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(X) << int(X)  << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Y, arr);
-    file << int(Y) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+    file << sign(Y) << int(Y)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Z, arr);
-    file << int(Z) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(Z) << int(Z)  << ',' << arr[0] << arr[1] << arr[2] << ';';
 
     convert(Vxt, arr);
-    file  << int(Vxt) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(Vxt) <<int(Vxt)  << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Vyt, arr);
-    file << int(Vyt) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+    file << sign(Vyt) <<int(Vyt)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Vzt, arr);
-    file << int(Vzt) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
+    file << sign(Vzt) <<int(Vzt)  << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
 
     Vxt= Vx + ax*T_poleta;
@@ -125,18 +133,18 @@ int main(){
     file << int(T_poleta) << ',' << arr[0] << arr[1] << arr[2] << ';'; 
 
     convert(Xd, arr);
-    file << int(Xd) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(Xd) << int(Xd)  << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Yd, arr);
-    file << int(Yd) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+    file << sign(Yd) << int(Yd)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Zd, arr);
-    file << int(Zd) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(Zd) << int(Zd)  << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
     convert(Vxt, arr);
-    file  << int(Vxt) << ',' << arr[0] << arr[1] << arr[2] << ';';
+    file << sign(Vxt) << int(Vxt)  << ',' << arr[0] << arr[1] << arr[2] << ';';
     convert(Vyt, arr);
-    file << int(Vyt) << ',' << arr[0] << arr[1] << arr[2] << ';' ;
+    file << sign(Vyt) << int(Vyt)  << ',' << arr[0] << arr[1] << arr[2] << ';' ;
     convert(Vzt, arr);
-    file << int(Vzt) << ',' << arr[0] << arr[1] << arr[2] << std::endl;
+    file << sign(Vzt) << int(Vzt)  << ',' << arr[0] << arr[1] << arr[2] << std::endl;
 
    
 
