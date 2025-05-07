@@ -1,37 +1,46 @@
 #include <iostream>
+
 using namespace std;
- 
-int main(){
-    int n, m, bomb, count = 0;
-    cin >> n >> m >> bomb;
-    char A[34][34];
-    int x, y;
-    for (int i = 0; i < n + 2; i++){ 
-        for (int j = 0; j < m + 2; j++){ 
-            A[i][j] = '0';
+
+int main() {
+    int N, M, W;
+    cin >> N >> M >> W;
+
+    int field[32][32] = {0};
+    
+
+    for (int i = 0; i < W; ++i) {
+        int x, y;
+        cin >> x >> y;
+        field[x-1][y-1] = -1; 
+
+        for (int dx = -1; dx <= 1; ++dx) {
+            for (int dy = -1; dy <= 1; ++dy) {
+                int nx = x-1 + dx;
+                int ny = y-1 + dy;
+
+                if (nx >= 0 && nx < N && ny >= 0 && ny < M && field[nx][ny] != -1) {
+                    field[nx][ny]++;
+                }
+            }
         }
     }
-    for (int i = 0; i < bomb; i++){
-        cin >> x >> y;
-        A[x][y] = '*';
-    }
-    for (int i = 1; i < n + 1; i++){
-        for (int j = 1; j < m + 1; j++){ 
-            if (A[i][j] != '*'){
-                if (A[i-1][j] == '*') count++;
-                if (A[i-1][j-1] == '*') count++;
-                if (A[i-1][j+1] == '*') count++;
-                if (A[i+1][j+1] == '*') count++;
-                if (A[i+1][j-1] == '*') count++;
-                if (A[i+1][j] == '*') count++;
-                if (A[i][j-1] == '*') count++;
-                if (A[i][j+1] == '*') count++;
-                cout << count;
-                count = 0;
+    
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < M; ++j) {
+            if (field[i][j] == -1) {
+                cout << "*";
+            } else {
+                cout << field[i][j];
             }
-            else cout << A[i][j];
-            if (j != m) cout << " ";
+
+            if (j != M-1) {
+                cout << " ";
+            }
         }
         cout << endl;
     }
+    
+    return 0;
 }
