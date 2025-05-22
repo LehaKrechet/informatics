@@ -1,0 +1,97 @@
+№;type;Number;count iteration;
+6;recursion_fibonaci;8;25
+6;cicle_fibonaci;8;4
+6;recursion_tribonaci;7;25
+6;cicle_tribonaci;7 4
+7;recursion_fibonaci;13;41
+7;cicle_fibonaci;13;5
+7;recursion_tribonaci;13;46
+7;cicle_tribonaci;13 5
+8;recursion_fibonaci;21;67
+8;cicle_fibonaci;21;6
+8;recursion_tribonaci;24;85
+8;cicle_tribonaci;24 6
+9;recursion_fibonaci;34;109
+9;cicle_fibonaci;34;7
+9;recursion_tribonaci;44;157
+9;cicle_tribonaci;44 7
+10;recursion_fibonaci;55;177
+10;cicle_fibonaci;55;8
+10;recursion_tribonaci;81;289
+10;cicle_tribonaci;81 8
+11;recursion_fibonaci;89;287
+11;cicle_fibonaci;89;9
+11;recursion_tribonaci;149;532
+11;cicle_tribonaci;149 9
+12;recursion_fibonaci;144;465
+12;cicle_fibonaci;144;10
+12;recursion_tribonaci;274;979
+12;cicle_tribonaci;274 10
+13;recursion_fibonaci;233;753
+13;cicle_fibonaci;233;11
+13;recursion_tribonaci;504;1801
+13;cicle_tribonaci;504 11
+14;recursion_fibonaci;377;1219
+14;cicle_fibonaci;377;12
+14;recursion_tribonaci;927;3313
+14;cicle_tribonaci;927 12
+15;recursion_fibonaci;610;1973
+15;cicle_fibonaci;610;13
+15;recursion_tribonaci;1705;6094
+15;cicle_tribonaci;1705 13
+16;recursion_fibonaci;987;3193
+16;cicle_fibonaci;987;14
+16;recursion_tribonaci;3136;11209
+16;cicle_tribonaci;3136 14
+17;recursion_fibonaci;1597;5167
+17;cicle_fibonaci;1597;15
+17;recursion_tribonaci;5768;20617
+17;cicle_tribonaci;5768 15
+18;recursion_fibonaci;2584;8361
+18;cicle_fibonaci;2584;16
+18;recursion_tribonaci;10609;37921
+18;cicle_tribonaci;10609 16
+19;recursion_fibonaci;4181;13529
+19;cicle_fibonaci;4181;17
+19;recursion_tribonaci;19513;69748
+19;cicle_tribonaci;19513 17
+20;recursion_fibonaci;6765;21891
+20;cicle_fibonaci;6765;18
+20;recursion_tribonaci;35890;128287
+20;cicle_tribonaci;35890 18
+21;recursion_fibonaci;10946;35421
+21;cicle_fibonaci;10946;19
+21;recursion_tribonaci;66012;235957
+21;cicle_tribonaci;66012 19
+22;recursion_fibonaci;17711;57313
+22;cicle_fibonaci;17711;20
+22;recursion_tribonaci;121415;433993
+22;cicle_tribonaci;121415 20
+23;recursion_fibonaci;28657;92735
+23;cicle_fibonaci;28657;21
+23;recursion_tribonaci;223317;798238
+23;cicle_tribonaci;223317 21
+24;recursion_fibonaci;46368;150049
+24;cicle_fibonaci;46368;22
+24;recursion_tribonaci;410744;1468189
+24;cicle_tribonaci;410744 22
+25;recursion_fibonaci;75025;242785
+25;cicle_fibonaci;75025;23
+25;recursion_tribonaci;755476;2700421
+25;cicle_tribonaci;755476 23
+26;recursion_fibonaci;121393;392835
+26;cicle_fibonaci;121393;24
+26;recursion_tribonaci;1389537;4966849
+26;cicle_tribonaci;1389537 24
+27;recursion_fibonaci;196418;635621
+27;cicle_fibonaci;196418;25
+27;recursion_tribonaci;2555757;9135460
+27;cicle_tribonaci;2555757 25
+28;recursion_fibonaci;317811;1028457
+28;cicle_fibonaci;317811;26
+28;recursion_tribonaci;4700770;16802731
+28;cicle_tribonaci;4700770 26
+29;recursion_fibonaci;514229;1664079
+29;cicle_fibonaci;514229;27
+29;recursion_tribonaci;8646064;30905041
+29;cicle_tribonaci;8646064 27
