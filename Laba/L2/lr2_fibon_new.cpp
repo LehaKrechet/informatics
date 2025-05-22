@@ -60,7 +60,7 @@ int main(){
         file << i << ';' <<"recursion_fibonaci;" << recursion_fibonaci(i, count_fib) << ";" << count_fib << std::endl;
         file << i << ';' <<"cicle_fibonaci;" << cicle_fibonaci(i, count_fib_cicle) << ";" << count_fib_cicle << std::endl;
         file << i << ';' <<"recursion_tribonaci;" << recursion_tribonaci(i, count_trib) << ";" << count_trib << std::endl;
-        file << i << ';' <<"cicle_tribonaci;" << cicle_tribonaci(i, count_trib_cicle) << " " << count_trib_cicle << std::endl;
+        file << i << ';' <<"cicle_tribonaci;" << cicle_tribonaci(i, count_trib_cicle) << ";" << count_trib_cicle << std::endl;
     }
 
     file.close();
